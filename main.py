@@ -21,12 +21,7 @@ def ver_metas():
     for i, meta in enumerate(metas):
         estado = "Cumplida" if meta["cumplida"] else "Pendiente"
         print(f"{i}. {meta['descripcion']} - {estado}")
-        def marcar_como_cumplida(indice):
-    if 0 <= indice < len(metas):
-        metas[indice]["estado"] = "cumplida"
-        print(f"Meta marcada como cumplida: {metas[indice]['nombre']}")
-    else:
-        print("Ese numero de meta no existe")
+        
         def eliminar_meta(indice):
     if 0 <= indice < len(metas):
         eliminada = metas.pop(indice)
@@ -34,7 +29,12 @@ def ver_metas():
     else:
         print("Ese numero de meta no existe")
 
-
+def marcar_como_cumplida(indice):
+    if 0 <= indice < len(metas):
+        metas[indice]["estado"] = "cumplida"
+        print(f"Meta marcada como cumplida: {metas[indice]['nombre']}")
+    else:
+        print("Ese numero de meta no existe")
 def contar_cumplidas():
     total = sum(1 for m in metas if m["cumplida"])
     print(f"Metas cumplidas: {total} de {len(metas)}")
